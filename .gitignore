@@ -1,0 +1,13 @@
+*
+!/.gitignore
+!/LICENSE
+!/README.md
+!/AGENTS.md
+!/prompts/
+!/prompts/**/*.md
+!/skills/
+!/skills/**
+/skills/**/.*/
+/skills/**/.*
+/prompts/**/*
+!/prompts/**/*.md

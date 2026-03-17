@@ -16,7 +16,11 @@ Help me prepare a git commit safely.
 6. If any tracked or untracked changes are not currently staged, show the exact unstaged file list that would be added by `git add -A`. Do not list files that are already staged.
 7. Then ask for confirmation. Treat only these replies as approval to continue: `yes`, `y`. This approval authorizes both staging the unstaged files just shown and committing the full staged result. Any other reply means do not make git changes.
 8. Only after confirmation:
-   - if any tracked or untracked changes are not currently staged, run `git add -A`
+   - execute git write operations strictly serially, never in parallel
+   - do not use any parallel tool wrapper for `git add` and `git commit`
+   - perform staging and commit in a single shell invocation so the execution is forced to remain serial
+   - if any tracked or untracked changes are not currently staged, run `git add -A && git commit -m "<commit message>"`
    - do not ask for any additional confirmation before staging or committing
-   - run `git commit -m "<commit message>"`
+   - if everything is already staged, run `git commit -m "<commit message>"`
+   - never split the add and commit steps into separate concurrent tool calls
 9. If the user does not confirm, stop without changing git state.

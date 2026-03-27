@@ -1,0 +1,4 @@
+interface:
+  display_name: "Session Learn"
+  short_description: "Extract reusable rules into AGENTS.md safely"
+  default_prompt: "Use $session-learn to extract reusable lessons from this session and update AGENTS.md only after explicit yes/y approval."
